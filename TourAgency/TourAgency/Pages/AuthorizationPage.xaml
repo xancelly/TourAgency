@@ -33,7 +33,8 @@
                         HorizontalAlignment="Center">
                 <Button x:Name="EnterButton"
                         Margin="5"
-                        Content="Войти" />
+                        Content="Войти"
+                        Click="EnterButton_Click" />
                 <Button x:Name="RegistrationButton"
                         Margin="5"
                         Content="Регистрация"

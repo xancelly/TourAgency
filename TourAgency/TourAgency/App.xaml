@@ -8,6 +8,8 @@
                x:Key="MainTextBlock">
             <Setter Property="FontSize"
                     Value="18" />
+            <Setter Property="Foreground"
+                    Value="#ffe897" />
             <Setter Property="FontFamily"
                     Value="Comic Sans MS" />
             <Setter Property="FontWeight"

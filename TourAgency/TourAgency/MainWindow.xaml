@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="{Binding ElementName=MainFrame,Path=Content.Title}"
         Height="900"
-        Width="900">
+        Width="900"
+        Icon="Source/logo3.png"
+        Background="#601a00">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
@@ -20,14 +22,16 @@
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
         
-        <Frame x:Name="MainFraim"
+        <Frame x:Name="MainFrame"
                Grid.Column="0"
                Grid.Row="1"
                Grid.ColumnSpan="3"
+               Grid.RowSpan="2"
                NavigationUIVisibility="Hidden"
-               ContentRendered="MainFraim_ContentRendered"/>
+               ContentRendered="MainFraim_ContentRendered"
+               Background="#ffe897"/>
 
-        <Image Source="Source/logo.jpg" 
+        <Image Source="Source/logo3.png" 
                Grid.Row="0"
                Grid.Column="0"
                Margin="5"/>

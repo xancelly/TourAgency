@@ -24,12 +24,12 @@ namespace TourAgency
         public MainWindow()
         {
             InitializeComponent();
-            MainFraim.Navigate(new AuthorizationPage());
+            MainFrame.Navigate(new AuthorizationPage());
         }
 
         private void MainFraim_ContentRendered(object sender, EventArgs e)
         {
-            if (MainFraim.CanGoBack)
+            if (MainFrame.CanGoBack)
             {
                 BackButton.Visibility = Visibility.Visible;
             } else
@@ -40,9 +40,9 @@ namespace TourAgency
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MainFraim.CanGoBack)
+            if (MainFrame.CanGoBack)
             {
-                MainFraim.GoBack();
+                MainFrame.GoBack();
             }
         }
     }
