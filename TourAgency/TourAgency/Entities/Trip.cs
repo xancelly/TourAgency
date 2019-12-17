@@ -9,7 +9,6 @@ namespace TourAgency.Entities
     [Table("Trip")]
     public partial class Trip
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [StringLength(50)]
@@ -22,7 +21,7 @@ namespace TourAgency.Entities
         [Column(TypeName = "money")]
         public decimal? Price { get; set; }
 
-        public int? TypeTrip { get; set; }
+        public int? IdTypeTrip { get; set; }
 
         public int? UserId { get; set; }
 
@@ -32,7 +31,7 @@ namespace TourAgency.Entities
 
         public virtual Rout Rout { get; set; }
 
-        public virtual TypeTrip TypeTrip1 { get; set; }
+        public virtual TypeTrip TypeTrip { get; set; }
 
         public virtual Users Users { get; set; }
     }

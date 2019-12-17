@@ -104,24 +104,13 @@
                              TextAlignment="Center"
                              Width="130" />
                 </StackPanel>
-
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Center">
-                    <Button x:Name="RegistrationButton"
-                            Margin="5"
-                            Content="Зарегистрироваться"
-                            Click="RegistrationButton_Click" />
-                    <Button x:Name="CancelButton"
-                            Margin="5"
-                            Content="Отмена"
-                            Click="CancelButton_Click" />
-                </StackPanel>
+                
             </StackPanel>
             <StackPanel Orientation="Vertical"
                         Margin="5">
                 <GroupBox Header="Адрес">
                     <StackPanel Orientation="Vertical">
-                        
+
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Область"
                                        Margin="5"
@@ -129,7 +118,7 @@
                             <TextBox x:Name="AreaTextBox"
                                      Margin="5" />
                         </StackPanel>
-                        
+
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Город"
                                        Margin="5"
@@ -161,9 +150,23 @@
                             <TextBox x:Name="ApartmentTextBox"
                                      Margin="5" />
                         </StackPanel>
-                        
+
                     </StackPanel>
                 </GroupBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Margin="5">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button x:Name="RegistrationButton"
+                        Margin="5"
+                        Content="Зарегистрироваться"
+                        Click="RegistrationButton_Click" />
+                <Button x:Name="CancelButton"
+                        Margin="5"
+                        Content="Отмена"
+                        Click="CancelButton_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

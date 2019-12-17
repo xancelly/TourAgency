@@ -15,7 +15,6 @@ namespace TourAgency.Entities
             Trip = new HashSet<Trip>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [StringLength(50)]

@@ -9,7 +9,6 @@ namespace TourAgency.Entities
     [Table("Agent")]
     public partial class Agent
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [StringLength(50)]
@@ -21,7 +20,7 @@ namespace TourAgency.Entities
         [StringLength(50)]
         public string MiddleName { get; set; }
 
-        [StringLength(11)]
+        [StringLength(12)]
         public string Phone { get; set; }
 
         public string Email { get; set; }

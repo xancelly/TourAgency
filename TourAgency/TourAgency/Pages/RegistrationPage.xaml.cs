@@ -57,9 +57,9 @@ namespace TourAgency.Pages
                                             {
                                                 if (NumberTextBox.Text.Length == 6 && (NumberTextBox.Text.IndexOfAny(letterList.ToCharArray()) <= -1))
                                                 {
-                                                    if (AreaTextBox.Text.IndexOfAny(letterList.ToCharArray()) <= -1)
+                                                    if (AreaTextBox.Text.IndexOfAny(numList.ToCharArray()) <= -1)
                                                     {
-                                                        if (CityTextBox.Text.IndexOfAny(letterList.ToCharArray()) <= -1)
+                                                        if (CityTextBox.Text.IndexOfAny(numList.ToCharArray()) <= -1)
                                                         {
                                                             Users NewUser = new Users()
                                                             {

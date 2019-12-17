@@ -27,10 +27,6 @@ namespace TourAgency.Entities
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Client>()
-                .Property(e => e.Address)
-                .IsFixedLength();
-
             modelBuilder.Entity<Country>()
                 .HasMany(e => e.Way)
                 .WithOptional(e => e.Country)
@@ -57,10 +53,6 @@ namespace TourAgency.Entities
                 .HasForeignKey(e => e.NumberRout);
 
             modelBuilder.Entity<Taxation>()
-                .Property(e => e.Tax)
-                .HasPrecision(3, 2);
-
-            modelBuilder.Entity<Taxation>()
                 .HasMany(e => e.Client)
                 .WithOptional(e => e.Taxation)
                 .HasForeignKey(e => e.IdTaxation);
@@ -71,8 +63,8 @@ namespace TourAgency.Entities
 
             modelBuilder.Entity<TypeTrip>()
                 .HasMany(e => e.Trip)
-                .WithOptional(e => e.TypeTrip1)
-                .HasForeignKey(e => e.TypeTrip);
+                .WithOptional(e => e.TypeTrip)
+                .HasForeignKey(e => e.IdTypeTrip);
 
             modelBuilder.Entity<Users>()
                 .HasMany(e => e.Agent)
