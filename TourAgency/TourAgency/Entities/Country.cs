@@ -13,7 +13,6 @@ namespace TourAgency.Entities
         public Country()
         {
             Way = new HashSet<Way>();
-            Way1 = new HashSet<Way>();
         }
 
         [Key]
@@ -25,8 +24,5 @@ namespace TourAgency.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Way> Way { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Way> Way1 { get; set; }
     }
 }

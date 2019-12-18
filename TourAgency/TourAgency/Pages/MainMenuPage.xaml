@@ -9,6 +9,21 @@
       Title="Главное меню">
 
     <Grid>
-        
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" 
+                        Margin="5">
+                <Button x:Name="TourButton"
+                        Content="Туры"
+                        Click="TourButton_Click" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="5">
+                <Button x:Name="RoutButton"
+                        Content="Маршруты"
+                        Click="RoutButton_Click" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

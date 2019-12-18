@@ -29,13 +29,8 @@ namespace TourAgency.Entities
         {
             modelBuilder.Entity<Country>()
                 .HasMany(e => e.Way)
-                .WithOptional(e => e.Country)
-                .HasForeignKey(e => e.FinalPoint);
-
-            modelBuilder.Entity<Country>()
-                .HasMany(e => e.Way1)
-                .WithOptional(e => e.Country1)
-                .HasForeignKey(e => e.StartPoint);
+                .WithMany(e => e.Country)
+                .Map(m => m.ToTable("WayCountry").MapLeftKey("CodeCountry").MapRightKey("IdWay"));
 
             modelBuilder.Entity<Role>()
                 .HasMany(e => e.Users)

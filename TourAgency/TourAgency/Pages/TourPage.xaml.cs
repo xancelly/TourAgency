@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace TourAgency.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainMenuPage.xaml
+    /// Логика взаимодействия для TourPage.xaml
     /// </summary>
-    public partial class MainMenuPage : Page
+    public partial class TourPage : Page
     {
-        public MainMenuPage()
+        public TourPage()
         {
             InitializeComponent();
-        }
-
-        private void TourButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new TourPage());
-        }
-
-        private void RoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new RoutPage());
         }
     }
 }

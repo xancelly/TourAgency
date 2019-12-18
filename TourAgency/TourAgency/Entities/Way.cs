@@ -13,6 +13,7 @@ namespace TourAgency.Entities
         public Way()
         {
             Rout = new HashSet<Rout>();
+            Country = new HashSet<Country>();
         }
 
         public int Id { get; set; }
@@ -26,11 +27,10 @@ namespace TourAgency.Entities
         [Column(TypeName = "money")]
         public decimal? Price { get; set; }
 
-        public virtual Country Country { get; set; }
-
-        public virtual Country Country1 { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rout> Rout { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Country> Country { get; set; }
     }
 }
