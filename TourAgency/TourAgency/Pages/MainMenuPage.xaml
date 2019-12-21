@@ -20,9 +20,9 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal"
                         Margin="5">
-                <Button x:Name="RoutButton"
+                <Button x:Name="WayButton"
                         Content="Маршруты"
-                        Click="RoutButton_Click" />
+                        Click="WayButton_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

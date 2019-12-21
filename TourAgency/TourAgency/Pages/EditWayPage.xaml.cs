@@ -26,6 +26,8 @@ namespace TourAgency.Pages
         public EditWayPage(Way way)
         {
             InitializeComponent();
+            StartPointComboBox.ItemsSource = Db.Country.ToList();
+            FinalPointComboBox.ItemsSource = Db.Country.ToList();
             CurrentWay = way;
             if (CurrentWay != null)
             {
@@ -39,7 +41,7 @@ namespace TourAgency.Pages
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             bool isValid = true;
-            if (StartPointComboBox.SelectedItem == null || FinalPointComboBox.SelectedItem == null || !String.IsNullOrWhiteSpace(PriceTextBox.Text))
+            if (StartPointComboBox.SelectedItem == null || FinalPointComboBox.SelectedItem == null || String.IsNullOrWhiteSpace(PriceTextBox.Text))
             {
                 isValid = false;
             }
@@ -49,8 +51,27 @@ namespace TourAgency.Pages
                 {
                     CurrentWay = new Way()
                     {
-                    }
+                        StartPoint = StartPointComboBox.SelectedItem as Country,
+                        FinalPoint = FinalPointComboBox.SelectedItem as Country,
+                        Price = decimal.Parse(PriceTextBox.Text),
+                    };
+                    Db.Way.Add(CurrentWay);
+                    MessageBox.Show("Маршрут был добавлен!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+                else
+                {
+                    CurrentWay.StartPoint = StartPointComboBox.SelectedItem as Country;
+                    CurrentWay.FinalPoint = FinalPointComboBox.SelectedItem as Country;
+                    CurrentWay.Price = decimal.Parse(PriceTextBox.Text);
+                    MessageBox.Show("Информация обновлена!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                Db.SaveChanges();
+                NavigationService.GoBack();
+
+            }
+            else
+            {
+                MessageBox.Show("Не все поля заполнены!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

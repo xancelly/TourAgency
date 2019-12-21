@@ -72,19 +72,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\Agent.cs" />
-    <Compile Include="Entities\Client.cs" />
-    <Compile Include="Entities\Context.cs" />
-    <Compile Include="Entities\Country.cs" />
-    <Compile Include="Entities\Role.cs" />
-    <Compile Include="Entities\Rout.cs" />
-    <Compile Include="Entities\sysdiagrams.cs" />
-    <Compile Include="Entities\Taxation.cs" />
-    <Compile Include="Entities\Trip.cs" />
-    <Compile Include="Entities\TypeTrip.cs" />
-    <Compile Include="Entities\Users.cs" />
-    <Compile Include="Entities\Visa.cs" />
-    <Compile Include="Entities\Way.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

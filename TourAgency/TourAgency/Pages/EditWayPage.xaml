@@ -19,7 +19,8 @@
                            Style="{StaticResource StandartTextBlock}"
                            Margin="5" />
                 <ComboBox x:Name="StartPointComboBox"
-                          Margin="5" />
+                          Margin="5" 
+                          DisplayMemberPath="Name"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"
@@ -28,7 +29,8 @@
                            Style="{StaticResource StandartTextBlock}"
                            Margin="5" />
                 <ComboBox x:Name="FinalPointComboBox"
-                          Margin="5" />
+                          Margin="5"
+                          DisplayMemberPath="Name"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"

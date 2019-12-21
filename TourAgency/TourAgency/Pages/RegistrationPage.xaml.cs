@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,7 +39,7 @@ namespace TourAgency.Pages
             string numList = "1234567890";
             if (Db.Users.Where(c => c.Login == LoginTextBox.Text).FirstOrDefault() == null)
             {
-                if (!String.IsNullOrWhiteSpace(PasswordTextBox.Text) && !String.IsNullOrWhiteSpace(LastNameTextBox.Text) && !String.IsNullOrWhiteSpace(FirstNameTextBox.Text) && !String.IsNullOrWhiteSpace(PhoneTextBox.Text) && !String.IsNullOrWhiteSpace(EmailTextBox.Text) && !String.IsNullOrWhiteSpace(SeriasTextBox.Text) && !String.IsNullOrWhiteSpace(NumberTextBox.Text) && DateOfBirthDatePicker.SelectedDate != null && !String.IsNullOrWhiteSpace(AreaTextBox.Text) && !String.IsNullOrWhiteSpace(CityTextBox.Text) && !String.IsNullOrWhiteSpace(StreetTextBox.Text) && !String.IsNullOrWhiteSpace(HouseTextBox.Text) && !String.IsNullOrWhiteSpace(ApartmentTextBox.Text))
+                if (!String.IsNullOrWhiteSpace(PasswordTextBox.Text) && !String.IsNullOrWhiteSpace(LastNameTextBox.Text) && !String.IsNullOrWhiteSpace(FirstNameTextBox.Text) && !String.IsNullOrWhiteSpace(PhoneTextBox.Text) && !String.IsNullOrWhiteSpace(EmailTextBox.Text) && !String.IsNullOrWhiteSpace(SeriasTextBox.Text) && !String.IsNullOrWhiteSpace(NumberTextBox.Text) && DateOfBirthDatePicker.SelectedDate != null && !String.IsNullOrWhiteSpace(AreaTextBox.Text) && !String.IsNullOrWhiteSpace(CityTextBox.Text) && !String.IsNullOrWhiteSpace(StreetTextBox.Text) && !String.IsNullOrWhiteSpace(HouseTextBox.Text))
                 {
                     if (LastNameTextBox.Text.IndexOfAny(numList.ToCharArray()) <= -1)
                     {
@@ -66,27 +66,46 @@ namespace TourAgency.Pages
                                                                 Login = LoginTextBox.Text,
                                                                 Password = PasswordTextBox.Text,
                                                                 IdRole = 1,
-                                                                IsDeleted = false,
                                                             };
                                                             Db.Users.Add(NewUser);
                                                             Properties.Settings.Default.IdUser = NewUser.Id;
-                                                            Client NewClient = new Client()
+                                                            if (!String.IsNullOrWhiteSpace(ApartmentTextBox.Text))
                                                             {
-                                                                LastName = LastNameTextBox.Text,
-                                                                FirstName = FirstNameTextBox.Text,
-                                                                MiddleName = MiddleNameTextBox.Text,
-                                                                Phone = RegionTextBox.Text + "" + PhoneTextBox.Text,
-                                                                Address = "обл. " + AreaTextBox.Text + ", г. " + CityTextBox.Text + ", ул. " + StreetTextBox.Text + ", д. " + HouseTextBox.Text + ", кв. " + ApartmentTextBox.Text,
-                                                                Email = EmailTextBox.Text,
-                                                                Passport = SeriasTextBox.Text + "" + NumberTextBox.Text,
-                                                                IdUser = Properties.Settings.Default.IdUser,
-                                                                IdTaxation = 1,
-                                                            };
-                                                            Db.Client.Add(NewClient);
-                                                            Db.SaveChanges();
-                                                            MessageBox.Show("Пользователь успешно зарегистрирован!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
-                                                            NavigationService.GoBack();
-
+                                                                Client NewClient = new Client()
+                                                                {
+                                                                    LastName = LastNameTextBox.Text,
+                                                                    FirstName = FirstNameTextBox.Text,
+                                                                    MiddleName = MiddleNameTextBox.Text,
+                                                                    Phone = RegionTextBox.Text + "" + PhoneTextBox.Text,
+                                                                    Address = "обл. " + AreaTextBox.Text + ", г. " + CityTextBox.Text + ", ул. " + StreetTextBox.Text + ", д. " + HouseTextBox.Text + ", кв. " + ApartmentTextBox.Text,
+                                                                    Email = EmailTextBox.Text,
+                                                                    Passport = SeriasTextBox.Text + "" + NumberTextBox.Text,
+                                                                    IdUser = Properties.Settings.Default.IdUser,
+                                                                    IdTaxation = 1,
+                                                                };
+                                                                Db.Client.Add(NewClient);
+                                                                Db.SaveChanges();
+                                                                MessageBox.Show("Пользователь успешно зарегистрирован!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                                                                NavigationService.GoBack();
+                                                            } else
+                                                            {
+                                                                Client NewClient = new Client()
+                                                                {
+                                                                    LastName = LastNameTextBox.Text,
+                                                                    FirstName = FirstNameTextBox.Text,
+                                                                    MiddleName = MiddleNameTextBox.Text,
+                                                                    Phone = RegionTextBox.Text + "" + PhoneTextBox.Text,
+                                                                    Address = "обл. " + AreaTextBox.Text + ", г. " + CityTextBox.Text + ", ул. " + StreetTextBox.Text + ", д. " + HouseTextBox.Text,
+                                                                    Email = EmailTextBox.Text,
+                                                                    Passport = SeriasTextBox.Text + "" + NumberTextBox.Text,
+                                                                    IdUser = Properties.Settings.Default.IdUser,
+                                                                    IdTaxation = 1,
+                                                                };
+                                                                Db.Client.Add(NewClient);
+                                                                Db.SaveChanges();
+                                                                MessageBox.Show("Пользователь успешно зарегистрирован!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                                                                NavigationService.GoBack();
+                                                            }
                                                         } else
                                                         {
                                                             MessageBox.Show("Город указан некорректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

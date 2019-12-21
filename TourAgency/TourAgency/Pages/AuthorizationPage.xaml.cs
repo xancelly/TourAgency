@@ -35,7 +35,7 @@ namespace TourAgency.Pages
 
         private void EnterButton_Click(object sender, RoutedEventArgs e)
         {
-            Users LoginUser = Db.Users.Where(c => c.Login == LoginTextBox.Text && c.Password == PasswordTextBox.Text && c.IsDeleted == false).FirstOrDefault();
+            Users LoginUser = Db.Users.Where(c => c.Login == LoginTextBox.Text && c.Password == PasswordTextBox.Text).FirstOrDefault();
             if (LoginUser != null)
             {
                 LoginTextBox.Text = "";

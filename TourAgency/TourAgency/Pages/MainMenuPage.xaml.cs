@@ -30,9 +30,9 @@ namespace TourAgency.Pages
             NavigationService.Navigate(new TourPage());
         }
 
-        private void RoutButton_Click(object sender, RoutedEventArgs e)
+        private void WayButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new RoutPage());
+            NavigationService.Navigate(new WayPage());
         }
     }
 }

@@ -1,12 +1,13 @@
 ﻿<Page x:Class="TourAgency.Pages.WayPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:TourAgency.Pages"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       Loaded="Page_Loaded"
-      d:DesignHeight="900" d:DesignWidth="900"
+      d:DesignHeight="900"
+      d:DesignWidth="900"
       Title="Маршруты">
 
     <Grid>
@@ -50,9 +51,9 @@
 
         <Button x:Name="DeleteButton"
                 Content="Удалить"
-                Margin="5"
+                Margin="0,0,5,10"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Center"
+                VerticalAlignment="Bottom"
                 Grid.Row="2"
                 Click="DeleteButton_Click" />
     </Grid>
