@@ -21,16 +21,15 @@ namespace TourAgency.Pages
     /// </summary>
     public partial class WayPage : Page
     {
-        Context Db = new Context();
         public WayPage()
         {
             InitializeComponent();
-            WayDataGrid.ItemsSource = Db.Way.ToList();
+            WayDataGrid.ItemsSource = AppData.Context.Way.ToList();
         }
 
         private void UpdateWay()
         {
-            var CurrentWay = Db.Way.ToList();
+            var CurrentWay = AppData.Context.Way.ToList();
             WayDataGrid.ItemsSource = CurrentWay;
         }
 
@@ -63,8 +62,8 @@ namespace TourAgency.Pages
             {
                 if (MessageBox.Show("Вы действительно хотите удалить маршрут?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
-                    Db.Way.Remove(CurrentWay);
-                    Db.SaveChanges();
+                    AppData.Context.Way.Remove(CurrentWay);
+                    AppData.Context.SaveChanges();
                     Page_Loaded(null, null);
                     MessageBox.Show("Маршрут был удалён!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

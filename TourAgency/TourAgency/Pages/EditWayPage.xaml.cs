@@ -21,18 +21,17 @@ namespace TourAgency.Pages
     /// </summary>
     public partial class EditWayPage : Page
     {
-        Context Db = new Context();
         Way CurrentWay = null;
         public EditWayPage(Way way)
         {
             InitializeComponent();
-            StartPointComboBox.ItemsSource = Db.Country.ToList();
-            FinalPointComboBox.ItemsSource = Db.Country.ToList();
+            StartPointComboBox.ItemsSource = AppData.Context.Country.ToList();
+            FinalPointComboBox.ItemsSource = AppData.Context.Country.ToList();
             CurrentWay = way;
             if (CurrentWay != null)
             {
-                StartPointComboBox.SelectedItem = CurrentWay.StartPoint;
-                FinalPointComboBox.SelectedItem = CurrentWay.FinalPoint;
+                StartPointComboBox.SelectedItem = CurrentWay.Country;
+                FinalPointComboBox.SelectedItem = CurrentWay.Country1;
                 PriceTextBox.Text = CurrentWay.Price.Value.ToString("N2");
                 SaveButton.Content = "Изменить";
             }
@@ -49,24 +48,41 @@ namespace TourAgency.Pages
             {
                 if (CurrentWay == null)
                 {
-                    CurrentWay = new Way()
+                    string letterList = "ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnoprstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+                    if (PriceTextBox.Text.IndexOfAny(letterList.ToCharArray()) <= -1)
                     {
-                        StartPoint = StartPointComboBox.SelectedItem as Country,
-                        FinalPoint = FinalPointComboBox.SelectedItem as Country,
-                        Price = decimal.Parse(PriceTextBox.Text),
-                    };
-                    Db.Way.Add(CurrentWay);
-                    MessageBox.Show("Маршрут был добавлен!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                        CurrentWay = new Way()
+                        {
+                            Country = StartPointComboBox.SelectedItem as Country,
+                            Country1 = FinalPointComboBox.SelectedItem as Country,
+                            Price = decimal.Parse(PriceTextBox.Text),
+                        };
+                        AppData.Context.Way.Add(CurrentWay);
+                        MessageBox.Show("Маршрут был добавлен!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                        AppData.Context.SaveChanges();
+                        NavigationService.GoBack();
+                    } else
+                    {
+                        MessageBox.Show("Стоимость введена некорректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
                 else
                 {
-                    CurrentWay.StartPoint = StartPointComboBox.SelectedItem as Country;
-                    CurrentWay.FinalPoint = FinalPointComboBox.SelectedItem as Country;
-                    CurrentWay.Price = decimal.Parse(PriceTextBox.Text);
-                    MessageBox.Show("Информация обновлена!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                    string letterList = "ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnoprstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+                    if (PriceTextBox.Text.IndexOfAny(letterList.ToCharArray()) <= -1)
+                    {
+                        CurrentWay.Country = StartPointComboBox.SelectedItem as Country;
+                        CurrentWay.Country1 = FinalPointComboBox.SelectedItem as Country;
+                        CurrentWay.Price = decimal.Parse(PriceTextBox.Text);
+                        MessageBox.Show("Информация обновлена!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                        AppData.Context.SaveChanges();
+                        NavigationService.GoBack();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Стоимость введена некорректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
-                Db.SaveChanges();
-                NavigationService.GoBack();
 
             }
             else

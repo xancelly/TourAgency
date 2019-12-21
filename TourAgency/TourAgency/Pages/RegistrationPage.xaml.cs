@@ -22,7 +22,6 @@ namespace TourAgency.Pages
     /// </summary>
     public partial class RegistrationPage : Page
     {
-        Context Db = new Context();
         public RegistrationPage()
         {
             InitializeComponent();
@@ -37,7 +36,7 @@ namespace TourAgency.Pages
         {
             string letterList = "ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnoprstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
             string numList = "1234567890";
-            if (Db.Users.Where(c => c.Login == LoginTextBox.Text).FirstOrDefault() == null)
+            if (AppData.Context.Users.Where(c => c.Login == LoginTextBox.Text).FirstOrDefault() == null)
             {
                 if (!String.IsNullOrWhiteSpace(PasswordTextBox.Text) && !String.IsNullOrWhiteSpace(LastNameTextBox.Text) && !String.IsNullOrWhiteSpace(FirstNameTextBox.Text) && !String.IsNullOrWhiteSpace(PhoneTextBox.Text) && !String.IsNullOrWhiteSpace(EmailTextBox.Text) && !String.IsNullOrWhiteSpace(SeriasTextBox.Text) && !String.IsNullOrWhiteSpace(NumberTextBox.Text) && DateOfBirthDatePicker.SelectedDate != null && !String.IsNullOrWhiteSpace(AreaTextBox.Text) && !String.IsNullOrWhiteSpace(CityTextBox.Text) && !String.IsNullOrWhiteSpace(StreetTextBox.Text) && !String.IsNullOrWhiteSpace(HouseTextBox.Text))
                 {
@@ -67,7 +66,7 @@ namespace TourAgency.Pages
                                                                 Password = PasswordTextBox.Text,
                                                                 IdRole = 1,
                                                             };
-                                                            Db.Users.Add(NewUser);
+                                                            AppData.Context.Users.Add(NewUser);
                                                             Properties.Settings.Default.IdUser = NewUser.Id;
                                                             if (!String.IsNullOrWhiteSpace(ApartmentTextBox.Text))
                                                             {
@@ -76,6 +75,7 @@ namespace TourAgency.Pages
                                                                     LastName = LastNameTextBox.Text,
                                                                     FirstName = FirstNameTextBox.Text,
                                                                     MiddleName = MiddleNameTextBox.Text,
+                                                                    DateOfBirth = DateOfBirthDatePicker.SelectedDate.Value,
                                                                     Phone = RegionTextBox.Text + "" + PhoneTextBox.Text,
                                                                     Address = "обл. " + AreaTextBox.Text + ", г. " + CityTextBox.Text + ", ул. " + StreetTextBox.Text + ", д. " + HouseTextBox.Text + ", кв. " + ApartmentTextBox.Text,
                                                                     Email = EmailTextBox.Text,
@@ -83,8 +83,8 @@ namespace TourAgency.Pages
                                                                     IdUser = Properties.Settings.Default.IdUser,
                                                                     IdTaxation = 1,
                                                                 };
-                                                                Db.Client.Add(NewClient);
-                                                                Db.SaveChanges();
+                                                                AppData.Context.Client.Add(NewClient);
+                                                                AppData.Context.SaveChanges();
                                                                 MessageBox.Show("Пользователь успешно зарегистрирован!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
                                                                 NavigationService.GoBack();
                                                             } else
@@ -94,6 +94,7 @@ namespace TourAgency.Pages
                                                                     LastName = LastNameTextBox.Text,
                                                                     FirstName = FirstNameTextBox.Text,
                                                                     MiddleName = MiddleNameTextBox.Text,
+                                                                    DateOfBirth = DateOfBirthDatePicker.SelectedDate.Value,
                                                                     Phone = RegionTextBox.Text + "" + PhoneTextBox.Text,
                                                                     Address = "обл. " + AreaTextBox.Text + ", г. " + CityTextBox.Text + ", ул. " + StreetTextBox.Text + ", д. " + HouseTextBox.Text,
                                                                     Email = EmailTextBox.Text,
@@ -101,8 +102,8 @@ namespace TourAgency.Pages
                                                                     IdUser = Properties.Settings.Default.IdUser,
                                                                     IdTaxation = 1,
                                                                 };
-                                                                Db.Client.Add(NewClient);
-                                                                Db.SaveChanges();
+                                                                AppData.Context.Client.Add(NewClient);
+                                                                AppData.Context.SaveChanges();
                                                                 MessageBox.Show("Пользователь успешно зарегистрирован!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
                                                                 NavigationService.GoBack();
                                                             }

@@ -34,5 +34,10 @@ namespace TourAgency.Pages
         {
             NavigationService.Navigate(new WayPage());
         }
+
+        private void AgentButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AgentPage());
+        }
     }
 }

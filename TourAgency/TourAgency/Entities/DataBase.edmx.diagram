@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0e2ea3ef59c64c0cb34e6b970ee1f882" Name="Diagram1">
+        <EntityTypeShape EntityType="TourAgencyModel.Agent" Width="1.5" PointX="5.25" PointY="18.25" />
+        <EntityTypeShape EntityType="TourAgencyModel.Client" Width="1.5" PointX="5.25" PointY="5.625" />
+        <EntityTypeShape EntityType="TourAgencyModel.Country" Width="1.5" PointX="3.75" PointY="2.625" />
+        <EntityTypeShape EntityType="TourAgencyModel.PersonnelDepartment" Width="1.5" PointX="5.25" PointY="10.125" />
+        <EntityTypeShape EntityType="TourAgencyModel.Role" Width="1.5" PointX="0.75" PointY="8.625" />
+        <EntityTypeShape EntityType="TourAgencyModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TourAgencyModel.Taxation" Width="1.5" PointX="3" PointY="5.625" />
+        <EntityTypeShape EntityType="TourAgencyModel.Trip" Width="1.5" PointX="8.25" PointY="7.625" />
+        <EntityTypeShape EntityType="TourAgencyModel.TypeTrip" Width="1.5" PointX="6" PointY="22.5" />
+        <EntityTypeShape EntityType="TourAgencyModel.Users" Width="1.5" PointX="3" PointY="8" />
+        <EntityTypeShape EntityType="TourAgencyModel.Visa" Width="1.5" PointX="6" PointY="2.625" />
+        <EntityTypeShape EntityType="TourAgencyModel.Way" Width="1.5" PointX="6" PointY="14.375" />
+        <AssociationConnector Association="TourAgencyModel.FK_Agent_Users" />
+        <AssociationConnector Association="TourAgencyModel.FK_Client_Taxation" />
+        <AssociationConnector Association="TourAgencyModel.FK_Client_Users" />
+        <AssociationConnector Association="TourAgencyModel.FK_Visa_Country" />
+        <AssociationConnector Association="TourAgencyModel.FK_Way_CountryFinal" />
+        <AssociationConnector Association="TourAgencyModel.FK_Way_CountryStart" />
+        <AssociationConnector Association="TourAgencyModel.FK_PersonnelDepartment_Users" />
+        <AssociationConnector Association="TourAgencyModel.FK_Users_Role" />
+        <AssociationConnector Association="TourAgencyModel.FK_Trip_TypeTrip1" />
+        <AssociationConnector Association="TourAgencyModel.FK_Trip_Users" />
+        <AssociationConnector Association="TourAgencyModel.FK_Trip_Visa" />
+        <AssociationConnector Association="TourAgencyModel.FK_Trip_Way" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

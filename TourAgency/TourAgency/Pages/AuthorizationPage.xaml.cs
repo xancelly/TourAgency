@@ -21,7 +21,6 @@ namespace TourAgency.Pages
     /// </summary>
     public partial class AuthorizationPage : Page
     {
-        Context Db = new Context();
         public AuthorizationPage()
         {
             InitializeComponent();
@@ -35,7 +34,7 @@ namespace TourAgency.Pages
 
         private void EnterButton_Click(object sender, RoutedEventArgs e)
         {
-            Users LoginUser = Db.Users.Where(c => c.Login == LoginTextBox.Text && c.Password == PasswordTextBox.Text).FirstOrDefault();
+            Users LoginUser = AppData.Context.Users.Where(c => c.Login == LoginTextBox.Text && c.Password == PasswordTextBox.Text).FirstOrDefault();
             if (LoginUser != null)
             {
                 LoginTextBox.Text = "";

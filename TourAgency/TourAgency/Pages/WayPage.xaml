@@ -24,13 +24,13 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Страна отправления"
                                     Width="*"
-                                    Binding="{Binding StartPoint}" />
+                                    Binding="{Binding Country.Name}" />
                 <DataGridTextColumn Header="Страна назначения"
                                     Width="*"
-                                    Binding="{Binding FinalPoint}" />
+                                    Binding="{Binding Country1.Name}" />
                 <DataGridTextColumn Header="Стоимость"
                                     Width="*"
-                                    Binding="{Binding Price}" />
+                                    Binding="{Binding Price, StringFormat=N2}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="AddButton"
