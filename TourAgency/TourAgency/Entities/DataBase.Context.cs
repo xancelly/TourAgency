@@ -28,11 +28,13 @@ namespace TourAgency.Entities
         public virtual DbSet<Agent> Agent { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Country> Country { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<PersonnelDepartment> PersonnelDepartment { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Taxation> Taxation { get; set; }
         public virtual DbSet<Trip> Trip { get; set; }
+        public virtual DbSet<TripImage> TripImage { get; set; }
         public virtual DbSet<TypeTrip> TypeTrip { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Visa> Visa { get; set; }

@@ -20,7 +20,6 @@ namespace TourAgency.Entities
             this.Agent = new HashSet<Agent>();
             this.Client = new HashSet<Client>();
             this.PersonnelDepartment = new HashSet<PersonnelDepartment>();
-            this.Trip = new HashSet<Trip>();
         }
     
         public int Id { get; set; }
@@ -35,7 +34,5 @@ namespace TourAgency.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonnelDepartment> PersonnelDepartment { get; set; }
         public virtual Role Role { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trip> Trip { get; set; }
     }
 }

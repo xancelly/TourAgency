@@ -97,8 +97,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Order.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\PartialFullnameAgent.cs" />
     <Compile Include="Entities\PartialFullnameClient.cs" />
+    <Compile Include="Entities\PartialWay.cs" />
+    <Compile Include="Entities\PartialYesNo.cs" />
     <Compile Include="Entities\PersonnelDepartment.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -112,6 +117,9 @@
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Trip.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TripImage.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\TypeTrip.cs">
@@ -147,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\EditClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditTourPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +198,9 @@
     </Compile>
     <Compile Include="Pages\EditClientPage.xaml.cs">
       <DependentUpon>EditClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditTourPage.xaml.cs">
+      <DependentUpon>EditTourPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EditWayPage.xaml.cs">
       <DependentUpon>EditWayPage.xaml</DependentUpon>
@@ -246,6 +261,7 @@
       <DependentUpon>DataBase.edmx</DependentUpon>
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
+    <Resource Include="Source\noimage.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Source\logo.png" />

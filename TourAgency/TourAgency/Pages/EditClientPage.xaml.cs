@@ -105,6 +105,7 @@ namespace TourAgency.Pages
                                                                     Email = EmailTextBox.Text,
                                                                     Passport = SeriasTextBox.Text + "" + NumberTextBox.Text,
                                                                     IdUser = CurrentUser.Id,
+                                                                    IdTaxation = 1,
                                                                 };
                                                                 AppData.Context.Client.Add(CurrentClient);
                                                                 MessageBox.Show("Клиент успешно зарегистрирован!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);

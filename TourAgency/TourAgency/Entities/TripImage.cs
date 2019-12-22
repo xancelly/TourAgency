@@ -12,12 +12,12 @@ namespace TourAgency.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Visa
+    public partial class TripImage
     {
         public int Id { get; set; }
-        public string CodeCountry { get; set; }
-        public Nullable<decimal> Price { get; set; }
+        public byte[] Source { get; set; }
+        public Nullable<int> IdTrip { get; set; }
     
-        public virtual Country Country { get; set; }
+        public virtual Trip Trip { get; set; }
     }
 }
