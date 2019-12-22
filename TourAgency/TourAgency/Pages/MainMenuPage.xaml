@@ -33,7 +33,8 @@
             <StackPanel Orientation="Horizontal"
                         Margin="5">
                 <Button x:Name="СlientButton"
-                        Content="Клиенты" />
+                        Content="Клиенты"
+                        Click="СlientButton_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

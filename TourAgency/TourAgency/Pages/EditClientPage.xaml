@@ -1,4 +1,4 @@
-﻿<Page x:Class="TourAgency.Pages.EditAgentPage"
+﻿<Page x:Class="TourAgency.Pages.EditClientPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TourAgency.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="900" d:DesignWidth="900"
-      Title="Редактирование агента">
+      Title="Редактирование клиента">
 
     <Grid>
         <StackPanel Orientation="Horizontal"

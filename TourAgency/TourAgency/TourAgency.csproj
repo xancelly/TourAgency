@@ -98,6 +98,7 @@
       <DependentUpon>DataBase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\PartialFullnameAgent.cs" />
+    <Compile Include="Entities\PartialFullnameClient.cs" />
     <Compile Include="Entities\PersonnelDepartment.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -137,7 +138,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EditAgentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,8 +178,14 @@
     <Compile Include="Pages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ClientPage.xaml.cs">
+      <DependentUpon>ClientPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EditAgentPage.xaml.cs">
       <DependentUpon>EditAgentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditClientPage.xaml.cs">
+      <DependentUpon>EditClientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EditWayPage.xaml.cs">
       <DependentUpon>EditWayPage.xaml</DependentUpon>
