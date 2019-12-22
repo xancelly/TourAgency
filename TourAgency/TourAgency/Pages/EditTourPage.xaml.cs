@@ -74,6 +74,7 @@ namespace TourAgency.Pages
                             Source = image
                         });
                     }
+                    AppData.Context.Trip.Add(CurrentTrip);
                     AppData.Context.SaveChanges();
                     MessageBox.Show("Тур был добавлен!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

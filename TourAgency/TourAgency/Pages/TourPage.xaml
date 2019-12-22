@@ -47,10 +47,10 @@
                                     Binding="{Binding Description}" />
                 <DataGridTextColumn Header="Страна отправления"
                                     Width="*"
-                                    Binding="{Binding Way.Name}" />
+                                    Binding="{Binding Way.Country1.Name}" />
                 <DataGridTextColumn Header="Страна назначения"
                                     Width="*"
-                                    Binding="{Binding Way.Country}" />
+                                    Binding="{Binding Way.Country.Name}" />
                 <DataGridTextColumn Header="Стоимость"
                                     Width="*"
                                     Binding="{Binding Price, StringFormat=N2}" />

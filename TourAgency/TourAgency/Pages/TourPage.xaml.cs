@@ -60,6 +60,7 @@ namespace TourAgency.Pages
                 if (MessageBox.Show("Вы действительно хотите удалить тур?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     AppData.Context.Trip.Remove(CurrentTrip);
+                    AppData.Context.TripImage.RemoveRange(AppData.Context.TripImage.ToList().Where(c => c.IdTrip == CurrentTrip.Id));
                     AppData.Context.SaveChanges();
                     Page_Loaded(null, null);
                     MessageBox.Show("Тур был удалён!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
