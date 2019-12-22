@@ -39,14 +39,22 @@
                                     Binding="{Binding Phone}" />
                 <DataGridTextColumn Header="Дата рождения"
                                     Width="*"
-                                    Binding="{Binding DateOFBirth, StringFormat=dd.MM.yyyy}" />
+                                    Binding="{Binding DateOfBirth, StringFormat= {}dd.MM.yyyy}" />
                 <DataGridTextColumn Header="Паспорт"
                                     Width="*"
                                     Binding="{Binding Passport}" />
                 <DataGridTextColumn Header="Адрес"
-                                    Width="*"
-                                    Binding="{Binding Address}" 
-                                    />
+                                    Width="*">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{} обл. {0}, г. {1}, ул. {2}, д. {3}, кв. {4}">
+                            <Binding Path="Region" />
+                            <Binding Path="City" />
+                            <Binding Path="Street" />
+                            <Binding Path="House" />
+                            <Binding Path="Apartment" />
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="AddButton"

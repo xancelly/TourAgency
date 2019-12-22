@@ -30,7 +30,7 @@ namespace TourAgency.Pages
         public void UpdateAgents()
         {
             var CurrentAgent = AppData.Context.Agent.ToList();
-            CurrentAgent = CurrentAgent.Where(c => c.LastName.ToLower().Contains(SearchTextBox.Text.ToLower()) && c.FirstName.ToLower().Contains(SearchTextBox.Text.ToLower()) && c.MiddleName.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList();
+            CurrentAgent = CurrentAgent.Where(c => c.LastName.ToLower().Contains(SearchTextBox.Text.ToLower()) || c.FirstName.ToLower().Contains(SearchTextBox.Text.ToLower()) || c.MiddleName.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList();
             AgentDataGrid.ItemsSource = CurrentAgent;
         }
 

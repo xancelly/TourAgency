@@ -22,7 +22,11 @@ namespace TourAgency.Entities
         public string Email { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public string Passport { get; set; }
-        public string Address { get; set; }
+        public string Region { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string House { get; set; }
+        public string Apartment { get; set; }
         public Nullable<int> IdUser { get; set; }
         public Nullable<int> IdTaxation { get; set; }
     

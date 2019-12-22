@@ -17,7 +17,11 @@
           <Property Name="Email" Type="nvarchar(max)" />
           <Property Name="DateOfBirth" Type="date" />
           <Property Name="Passport" Type="nvarchar" MaxLength="10" />
-          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Region" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="Street" Type="nvarchar(max)" />
+          <Property Name="House" Type="nvarchar(max)" />
+          <Property Name="Apartment" Type="nvarchar(max)" />
           <Property Name="IdUser" Type="int" />
         </EntityType>
         <EntityType Name="Client">
@@ -32,7 +36,11 @@
           <Property Name="Email" Type="nvarchar(max)" />
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="Passport" Type="nvarchar" MaxLength="10" />
-          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Region" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="Street" Type="nvarchar(max)" />
+          <Property Name="House" Type="nvarchar(max)" />
+          <Property Name="Apartment" Type="nvarchar(max)" />
           <Property Name="IdUser" Type="int" />
           <Property Name="IdTaxation" Type="int" />
         </EntityType>
@@ -55,7 +63,11 @@
           <Property Name="Email" Type="nvarchar(max)" />
           <Property Name="DateOfBirth" Type="date" />
           <Property Name="Passport" Type="nchar" MaxLength="10" />
-          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Region" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="Street" Type="nvarchar(max)" />
+          <Property Name="House" Type="nvarchar(max)" />
+          <Property Name="Apartment" Type="nvarchar(max)" />
           <Property Name="IdUser" Type="int" />
         </EntityType>
         <EntityType Name="Role">
@@ -413,7 +425,11 @@
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="Passport" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="House" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apartment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IdUser" Type="Int32" />
           <NavigationProperty Name="Users" Relationship="TourAgencyModel.FK_Agent_Users" FromRole="Agent" ToRole="Users" />
         </EntityType>
@@ -429,7 +445,11 @@
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Passport" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="House" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apartment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IdUser" Type="Int32" />
           <Property Name="IdTaxation" Type="Int32" />
           <NavigationProperty Name="Taxation" Relationship="TourAgencyModel.FK_Client_Taxation" FromRole="Client" ToRole="Taxation" />
@@ -457,7 +477,11 @@
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="Passport" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="House" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apartment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IdUser" Type="Int32" />
           <NavigationProperty Name="Users" Relationship="TourAgencyModel.FK_PersonnelDepartment_Users" FromRole="PersonnelDepartment" ToRole="Users" />
         </EntityType>
@@ -703,7 +727,11 @@
             <EntityTypeMapping TypeName="TourAgencyModel.Agent">
               <MappingFragment StoreEntitySet="Agent">
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Apartment" ColumnName="Apartment" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
                 <ScalarProperty Name="Passport" ColumnName="Passport" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -720,7 +748,11 @@
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="IdTaxation" ColumnName="IdTaxation" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Apartment" ColumnName="Apartment" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
                 <ScalarProperty Name="Passport" ColumnName="Passport" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -744,7 +776,11 @@
             <EntityTypeMapping TypeName="TourAgencyModel.PersonnelDepartment">
               <MappingFragment StoreEntitySet="PersonnelDepartment">
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Apartment" ColumnName="Apartment" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
                 <ScalarProperty Name="Passport" ColumnName="Passport" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
