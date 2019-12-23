@@ -40,6 +40,11 @@ namespace TourAgency.Pages
             CurrentTrip = trip;
         }
 
+        public EditOrderPage(Order order)
+        {
+            CurrentOrder = order;
+        }
+
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
             string letterList = "ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnoprstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
