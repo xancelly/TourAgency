@@ -81,5 +81,18 @@ namespace TourAgency.Pages
         {
             UpdateTrip();
         }
+
+        private void OrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            Trip CurrentOrder = TripDataGrid.SelectedItem as Trip;
+            if (CurrentOrder != null)
+            {
+                NavigationService.Navigate(new EditOrderPage(null));
+            }
+            else
+            {
+                MessageBox.Show("Выберите тур!");
+            }
+        }
     }
 }

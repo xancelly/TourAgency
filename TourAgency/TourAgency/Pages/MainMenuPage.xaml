@@ -12,6 +12,12 @@
         <StackPanel Orientation="Vertical" 
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal"
+                        Margin="5">
+                <Button x:Name="OrderButton"
+                        Content="Заказы"
+                        Click="OrderButton_Click" />
+            </StackPanel>
             <StackPanel Orientation="Horizontal" 
                         Margin="5">
                 <Button x:Name="TourButton"

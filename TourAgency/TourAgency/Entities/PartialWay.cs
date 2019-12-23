@@ -12,7 +12,7 @@ namespace TourAgency.Entities
         {
             get
             {
-                return Country.Name + " - " + Country1.Name;
+                return Country1.Name + " - " + Country.Name;
             }
         }
     }

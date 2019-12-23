@@ -34,7 +34,7 @@ namespace TourAgency.Pages
             {
                 NameTextBox.Text = CurrentTrip.Name;
                 DescriptionTextBox.Text = CurrentTrip.Description;
-                WayComboBox.SelectedItem = CurrentTrip.IdWay;
+                WayComboBox.SelectedItem = CurrentTrip.Way;
                 PriceTextBox.Text = CurrentTrip.Price.Value.ToString();
                 ImageListView.ItemsSource = CurrentTrip.TripImage.ToList().Select(c => c.Source).ToList();
                 AddButton.Content = "Изменить";
@@ -51,8 +51,9 @@ namespace TourAgency.Pages
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            string letterList = "ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnoprstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
             bool isValid = true;
-            if (String.IsNullOrEmpty(NameTextBox.Text) || String.IsNullOrEmpty(DescriptionTextBox.Text) || String.IsNullOrEmpty(PriceTextBox.Text) || WayComboBox.SelectedItem == null)
+            if (String.IsNullOrEmpty(NameTextBox.Text) || String.IsNullOrEmpty(DescriptionTextBox.Text) || PriceTextBox.Text.IndexOfAny(letterList.ToCharArray()) > -1 || WayComboBox.SelectedItem == null)
             {
                 isValid = false;
             }

@@ -53,8 +53,8 @@ namespace TourAgency.Pages
                     {
                         CurrentWay = new Way()
                         {
-                            Country = StartPointComboBox.SelectedItem as Country,
-                            Country1 = FinalPointComboBox.SelectedItem as Country,
+                            Country1 = StartPointComboBox.SelectedItem as Country,
+                            Country = FinalPointComboBox.SelectedItem as Country,
                             Price = decimal.Parse(PriceTextBox.Text),
                         };
                         AppData.Context.Way.Add(CurrentWay);
@@ -71,8 +71,8 @@ namespace TourAgency.Pages
                     string letterList = "ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnoprstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
                     if (PriceTextBox.Text.IndexOfAny(letterList.ToCharArray()) <= -1)
                     {
-                        CurrentWay.Country = StartPointComboBox.SelectedItem as Country;
-                        CurrentWay.Country1 = FinalPointComboBox.SelectedItem as Country;
+                        CurrentWay.Country1 = StartPointComboBox.SelectedItem as Country;
+                        CurrentWay.Country = FinalPointComboBox.SelectedItem as Country;
                         CurrentWay.Price = decimal.Parse(PriceTextBox.Text);
                         MessageBox.Show("Информация обновлена!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
                         AppData.Context.SaveChanges();

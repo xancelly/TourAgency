@@ -44,5 +44,10 @@ namespace TourAgency.Pages
         {
             NavigationService.Navigate(new ClientPage());
         }
+
+        private void OrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrderPage());
+        }
     }
 }

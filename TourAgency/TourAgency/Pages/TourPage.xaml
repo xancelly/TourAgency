@@ -72,6 +72,12 @@
                 VerticalAlignment="Center"
                 Grid.Row="2"
                 Click="EditButton_Click" />
+        
+        <Button x:Name="OrderButton"
+                Content="Заказать"
+                Margin="205,10,495,10"
+                Grid.Row="2"
+                Click="OrderButton_Click" />
 
         <Button x:Name="DeleteButton"
                 Content="Удалить"
