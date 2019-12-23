@@ -8,18 +8,11 @@ namespace TourAgency.Entities
 {
     public partial class Order
     {
-        public string YesNo
+        public string FullnameClient
         {
             get
             {
-                if (IsActual == true)
-                {
-                    return "Да";
-                }
-                else
-                {
-                    return "Нет";
-                }
+                return Client.LastName + ' ' + Client.FirstName + ' ' + Client.MiddleName;
             }
         }
     }

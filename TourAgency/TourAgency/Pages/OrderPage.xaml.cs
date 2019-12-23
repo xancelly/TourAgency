@@ -39,11 +39,6 @@ namespace TourAgency.Pages
             UpdateOrder();
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new EditOrderPage(null));
-        }
-
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             Order CurrentOrder = OrderDataGrid.SelectedItem as Order;
@@ -82,3 +77,4 @@ namespace TourAgency.Pages
         }
     }
 }
+

@@ -17,6 +17,7 @@ namespace TourAgency.Entities
         public int Id { get; set; }
         public Nullable<int> IdTrip { get; set; }
         public Nullable<int> DayCount { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> IdTypeTrip { get; set; }
         public Nullable<int> IdClient { get; set; }
         public Nullable<int> IdAgent { get; set; }

@@ -5,20 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0e2ea3ef59c64c0cb34e6b970ee1f882" Name="Diagram1">
-        <EntityTypeShape EntityType="TourAgencyModel.Agent" Width="1.5" PointX="5.25" PointY="14.75" />
-        <EntityTypeShape EntityType="TourAgencyModel.Client" Width="1.5" PointX="5.25" PointY="4" />
-        <EntityTypeShape EntityType="TourAgencyModel.Country" Width="1.5" PointX="0.75" PointY="20.625" />
-        <EntityTypeShape EntityType="TourAgencyModel.Order" Width="1.5" PointX="7.5" PointY="9.875" />
-        <EntityTypeShape EntityType="TourAgencyModel.PersonnelDepartment" Width="1.5" PointX="5.25" PointY="10.125" />
-        <EntityTypeShape EntityType="TourAgencyModel.Role" Width="1.5" PointX="0.75" PointY="8.375" />
-        <EntityTypeShape EntityType="TourAgencyModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.5" />
-        <EntityTypeShape EntityType="TourAgencyModel.Taxation" Width="1.5" PointX="3" PointY="5.375" />
-        <EntityTypeShape EntityType="TourAgencyModel.Trip" Width="1.5" PointX="5.25" PointY="20.25" />
-        <EntityTypeShape EntityType="TourAgencyModel.TripImage" Width="1.5" PointX="7.5" PointY="20.75" />
-        <EntityTypeShape EntityType="TourAgencyModel.TypeTrip" Width="1.5" PointX="5.25" PointY="0.75" />
-        <EntityTypeShape EntityType="TourAgencyModel.Users" Width="1.5" PointX="3" PointY="7.875" />
-        <EntityTypeShape EntityType="TourAgencyModel.Visa" Width="1.5" PointX="3" PointY="24.5" />
-        <EntityTypeShape EntityType="TourAgencyModel.Way" Width="1.5" PointX="3" PointY="20.5" />
+        <EntityTypeShape EntityType="TourAgencyModel.Agent" Width="1.5" PointX="5.25" PointY="15.75" />
+        <EntityTypeShape EntityType="TourAgencyModel.Client" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="TourAgencyModel.Country" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="TourAgencyModel.Order" Width="1.5" PointX="7.5" PointY="10.75" />
+        <EntityTypeShape EntityType="TourAgencyModel.PersonnelDepartment" Width="1.5" PointX="5.25" PointY="11.125" />
+        <EntityTypeShape EntityType="TourAgencyModel.Role" Width="1.5" PointX="0.75" PointY="9.375" />
+        <EntityTypeShape EntityType="TourAgencyModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="7.5" />
+        <EntityTypeShape EntityType="TourAgencyModel.Taxation" Width="1.5" PointX="3" PointY="6.375" />
+        <EntityTypeShape EntityType="TourAgencyModel.Trip" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="TourAgencyModel.TripImage" Width="1.5" PointX="7.5" PointY="4.625" />
+        <EntityTypeShape EntityType="TourAgencyModel.TypeTrip" Width="1.5" PointX="5.25" PointY="21.25" />
+        <EntityTypeShape EntityType="TourAgencyModel.Users" Width="1.5" PointX="3" PointY="8.875" />
+        <EntityTypeShape EntityType="TourAgencyModel.Visa" Width="1.5" PointX="3" PointY="21.5" />
+        <EntityTypeShape EntityType="TourAgencyModel.Way" Width="1.5" PointX="3" PointY="3.25" />
         <AssociationConnector Association="TourAgencyModel.FK_Agent_Users" />
         <AssociationConnector Association="TourAgencyModel.FK_Order_Agent" />
         <AssociationConnector Association="TourAgencyModel.FK_Client_Taxation" />

@@ -37,18 +37,25 @@
                                     Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Заказчик"
                                     Width="*"
-                                    Binding="{Binding IdClient.FullnameClient}"/>
+                                    Binding="{Binding FullnameClient}"/>
                 <DataGridTextColumn Header="Агент"
                                     Width="*"
-                                    Binding="{Binding IdAgent.FullnameAgent}" />
+                                    Binding="{Binding FullnameAgent}" />
+                <DataGridTextColumn Header="Дата заказа"
+                                    Width="*"
+                                    Binding="{Binding Date, StringFormat= {}dd.MM.yyyy}" />
                 <DataGridTextColumn Header="Цель тура"
                                     Width="*"
-                                    Binding="{Binding IdClient.FullnameClient}" />
+                                    Binding="{Binding TypeTrip.Name}" />
+                <DataGridTextColumn Header="Кол-во дней"
+                                    Width="*"
+                                    Binding="{Binding DayCount}" />
                 <DataGridTextColumn Header="Общаяя стоимость"
-                                    Width="*" />
+                                    Width="*"
+                                    Binding="{Binding TotalPrice, StringFormat=N2}" />
                 <DataGridTextColumn Header="Подтверждён"
                                     Width="*"
-                                    Binding="{Binding IsActual}" />
+                                    Binding="{Binding YesNo}" />
             </DataGrid.Columns>
         </DataGrid>
 

@@ -32,15 +32,15 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal"
                         Margin="5">
-                <Button x:Name="AgentButton"
-                        Content="Агенты"
-                        Click="AgentButton_Click" />
+                <Button x:Name="ClientButton"
+                        Content="Клиенты"
+                        Click="ClientButton_Click" />
             </StackPanel>
             <StackPanel Orientation="Horizontal"
                         Margin="5">
-                <Button x:Name="СlientButton"
-                        Content="Клиенты"
-                        Click="СlientButton_Click" />
+                <Button x:Name="AgentButton"
+                        Content="Агенты"
+                        Click="AgentButton_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

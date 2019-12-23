@@ -25,6 +25,15 @@ namespace TourAgency.Pages
         {
             InitializeComponent();
             TripDataGrid.ItemsSource = AppData.Context.Trip.ToList();
+            if (Properties.Settings.Default.IdRole == 1)
+            {
+                AddButton.Visibility = Visibility.Hidden;
+                EditButton.Visibility = Visibility.Hidden;
+                DeleteButton.Visibility = Visibility.Hidden;
+            } else if (Properties.Settings.Default.IdRole == 2)
+            {
+                OrderButton.Visibility = Visibility.Hidden;
+            }
         }
 
         private void UpdateTrip()
@@ -84,10 +93,10 @@ namespace TourAgency.Pages
 
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
-            Trip CurrentOrder = TripDataGrid.SelectedItem as Trip;
-            if (CurrentOrder != null)
+            Trip CurrentTrip = TripDataGrid.SelectedItem as Trip;
+            if (CurrentTrip != null)
             {
-                NavigationService.Navigate(new EditOrderPage(null));
+                NavigationService.Navigate(new EditOrderPage(CurrentTrip));
             }
             else
             {

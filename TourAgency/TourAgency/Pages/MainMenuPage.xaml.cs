@@ -23,6 +23,15 @@ namespace TourAgency.Pages
         public MainMenuPage()
         {
             InitializeComponent();
+            if (Properties.Settings.Default.IdRole == 1)
+            {
+                WayButton.Visibility = Visibility.Hidden;
+                AgentButton.Visibility = Visibility.Hidden;
+                ClientButton.Visibility = Visibility.Hidden;
+            } else if (Properties.Settings.Default.IdRole == 2)
+            {
+                AgentButton.Visibility = Visibility.Hidden;
+            }
         }
 
         private void TourButton_Click(object sender, RoutedEventArgs e)
@@ -40,14 +49,14 @@ namespace TourAgency.Pages
             NavigationService.Navigate(new AgentPage());
         }
 
-        private void СlientButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ClientPage());
-        }
-
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new OrderPage());
+        }
+
+        private void ClientButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ClientPage());
         }
     }
 }

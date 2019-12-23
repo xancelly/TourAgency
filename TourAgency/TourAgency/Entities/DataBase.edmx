@@ -58,6 +58,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdTrip" Type="int" />
           <Property Name="DayCount" Type="int" />
+          <Property Name="Date" Type="date" />
           <Property Name="IdTypeTrip" Type="int" />
           <Property Name="IdClient" Type="int" />
           <Property Name="IdAgent" Type="int" />
@@ -536,6 +537,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdTrip" Type="Int32" />
           <Property Name="DayCount" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="IdTypeTrip" Type="Int32" />
           <Property Name="IdClient" Type="Int32" />
           <Property Name="IdAgent" Type="Int32" />
@@ -887,6 +889,7 @@
                 <ScalarProperty Name="IdAgent" ColumnName="IdAgent" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="IdTypeTrip" ColumnName="IdTypeTrip" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="DayCount" ColumnName="DayCount" />
                 <ScalarProperty Name="IdTrip" ColumnName="IdTrip" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

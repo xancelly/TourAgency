@@ -102,6 +102,9 @@
     </Compile>
     <Compile Include="Entities\PartialFullnameAgent.cs" />
     <Compile Include="Entities\PartialFullnameClient.cs" />
+    <Compile Include="Entities\PartialOrderFullnameAgent.cs" />
+    <Compile Include="Entities\PartialOrderFullnameClient.cs" />
+    <Compile Include="Entities\PartialTotalPrice.cs" />
     <Compile Include="Entities\PartialWay.cs" />
     <Compile Include="Entities\PartialYesNo.cs" />
     <Compile Include="Entities\PersonnelDepartment.cs">
