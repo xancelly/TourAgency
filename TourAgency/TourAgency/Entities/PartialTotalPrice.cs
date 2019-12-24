@@ -12,11 +12,11 @@ namespace TourAgency.Entities
         {
             get
             {
-             //   Convert.ToString(((trip.Price * decimal.Parse(DayCountTextBox.Text)) + trip.Way.Price) + ((trip.Price + trip.Way.Price) / 100 * CurrentTaxation));
-             
-                string Price;
-                Price = Convert.ToString(((Trip.Price * Convert.ToInt32(DayCount)) + Trip.Way.Price) + ((Trip.Price + Trip.Way.Price) / 100 * Convert.ToDecimal(Client.Taxation.Tax)));
-                return Price;
+                decimal DayPrice = Convert.ToDecimal(DayCount) * Convert.ToDecimal(Trip.Price);
+                decimal WayPrice = Convert.ToDecimal(Trip.Way.Price);
+                decimal Taxation = Convert.ToDecimal(Client.Taxation.Tax);
+                decimal Price = (DayPrice + WayPrice) + ((DayPrice + WayPrice) / 100 * Taxation);
+                return Price.ToString("N2");
             }
         }
     }

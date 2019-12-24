@@ -24,12 +24,28 @@ namespace TourAgency.Pages
         public OrderPage()
         {
             InitializeComponent();
-            OrderDataGrid.ItemsSource = AppData.Context.Order.ToList();
+            if (Properties.Settings.Default.IdRole == 1)
+            {
+                OrderDataGrid.ItemsSource = AppData.Context.Order.Where(c => c.Client.IdUser == Properties.Settings.Default.IdUser).ToList();
+                EditButton.Visibility = Visibility.Hidden;
+                DeleteButton.Visibility = Visibility.Hidden;
+            } else if (Properties.Settings.Default.IdRole == 2)
+            {
+                OrderDataGrid.ItemsSource = AppData.Context.Order.ToList();
+            }
         }
 
         private void UpdateOrder()
         {
             var CurrentOrder = AppData.Context.Order.ToList();
+            if (Properties.Settings.Default.IdRole == 1)
+            {
+                CurrentOrder = AppData.Context.Order.Where(c => c.Client.IdUser == Properties.Settings.Default.IdUser).ToList();
+            }
+            else if (Properties.Settings.Default.IdRole == 2)
+            {
+                CurrentOrder = AppData.Context.Order.ToList();
+            }
             CurrentOrder = CurrentOrder.Where(c => c.Client.FullnameClient.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList();
             OrderDataGrid.ItemsSource = CurrentOrder;
         }
@@ -44,7 +60,7 @@ namespace TourAgency.Pages
             Order CurrentOrder = OrderDataGrid.SelectedItem as Order;
             if (CurrentOrder != null)
             {
-                NavigationService.Navigate(new EditTourPage(CurrentOrder));
+                NavigationService.Navigate(new EditOrderPage(CurrentOrder));
             }
             else
             {
@@ -74,6 +90,19 @@ namespace TourAgency.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateOrder();
+        }
+
+        private void ShowButton_Click(object sender, RoutedEventArgs e)
+        {
+            Order CurrentOrder = OrderDataGrid.SelectedItem as Order;
+            if (CurrentOrder != null)
+            {
+                NavigationService.Navigate(new EditOrderPage(CurrentOrder));
+            }
+            else
+            {
+                MessageBox.Show("Заказ не выбран!\nВыберите заказ и повторите процедуру.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

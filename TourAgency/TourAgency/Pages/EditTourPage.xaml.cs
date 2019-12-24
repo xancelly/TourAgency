@@ -49,6 +49,7 @@ namespace TourAgency.Pages
             }
         }
 
+
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             string letterList = "ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnoprstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";

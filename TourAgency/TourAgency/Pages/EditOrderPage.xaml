@@ -75,6 +75,16 @@
 
                 <StackPanel Orientation="Horizontal"
                             Margin="5">
+                    <TextBlock Text="Стоимость (1 день)"
+                               Margin="5"
+                               Style="{StaticResource StandartTextBlock}" />
+                    <TextBox x:Name="PriceTextBox"
+                             Margin="5"
+                             IsReadOnly="True" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="5">
                     <TextBlock Text="Дата отправления"
                                Margin="5"
                                Style="{StaticResource StandartTextBlock}" />
@@ -89,6 +99,7 @@
                                Style="{StaticResource StandartTextBlock}" />
                     <TextBox x:Name="DayCountTextBox"
                              Margin="5" 
+                             Text="1"
                              TextChanged="DayCountTextBox_TextChanged"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
@@ -114,7 +125,7 @@
                             HorizontalAlignment="Right">
                     <CheckBox Content="Подтверждён"
                               x:Name="IsActualCheckBox"
-                              Visibility="Hidden" />
+                              Visibility="Hidden"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
