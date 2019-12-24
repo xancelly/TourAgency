@@ -32,6 +32,7 @@ namespace TourAgency.Pages
             } else if (Properties.Settings.Default.IdRole == 2)
             {
                 OrderDataGrid.ItemsSource = AppData.Context.Order.ToList();
+                ShowButton.Visibility = Visibility.Hidden;
             }
         }
 

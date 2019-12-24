@@ -51,7 +51,8 @@ namespace TourAgency.Pages
             TotalPriceTextBox.Text = TotalPrice.ToString();
             CurrentTrip = trip;
             loadForm = true;
-            PriceTextBox.Visibility = Visibility.Hidden;
+            IsActualCheckBox.Visibility = Visibility.Hidden;
+            PrintButton.Visibility = Visibility.Hidden;
         }
 
         public EditOrderPage(Order order)
@@ -64,6 +65,9 @@ namespace TourAgency.Pages
                 TypeTripComboBox.IsEnabled = false;
                 IsActualCheckBox.IsEnabled = false;
                 DateOrderDatePicker.IsEnabled = false;
+            } else if (Properties.Settings.Default.IdRole == 1)
+            {
+                PrintButton.Visibility = Visibility.Hidden;
             }
             var FullnameClient = AppData.Context.Client.Where(c => c.IdUser == Properties.Settings.Default.IdUser).FirstOrDefault();
             var FullnameAgent = AppData.Context.Agent.Where(c => c.IdUser == Properties.Settings.Default.IdUser).FirstOrDefault();
