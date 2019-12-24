@@ -9,7 +9,8 @@
         Height="900"
         Width="900"
         Icon="Source/logo3.png"
-        Background="#601a00">
+        Background="#601a00"
+        WindowState="Maximized">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />

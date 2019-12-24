@@ -47,6 +47,7 @@ namespace TourAgency.Pages
             TotalPriceTextBox.Text = TotalPrice.ToString();
             CurrentTrip = trip;
             loadForm = true;
+            PriceTextBox.Visibility = Visibility.Hidden;
         }
 
         public EditOrderPage(Order order)
@@ -54,11 +55,16 @@ namespace TourAgency.Pages
             InitializeComponent();
             if (Properties.Settings.Default.IdRole == 1)
             {
-                OrderButton.Visibility = Visibility.Visible;
+                OrderButton.Visibility = Visibility.Hidden;
+                DayCountTextBox.IsReadOnly = true;
+                TypeTripComboBox.IsEnabled = false;
+                IsActualCheckBox.IsEnabled = false;
+                DateOrderDatePicker.IsEnabled = false;
             }
             var FullnameClient = AppData.Context.Client.Where(c => c.IdUser == Properties.Settings.Default.IdUser).FirstOrDefault();
             var FullnameAgent = AppData.Context.Agent.Where(c => c.IdUser == Properties.Settings.Default.IdUser).FirstOrDefault();
             var typeTrip = AppData.Context.TypeTrip.ToList();
+            WayPrice = Convert.ToDecimal(order.Trip.Way.Price);
             TypeTripComboBox.ItemsSource = typeTrip;
             CurrentTaxation = Convert.ToDecimal(AppData.Context.Taxation.Select(c => c.Tax).FirstOrDefault());
             NameTextBox.Text = order.Trip.Name;
@@ -71,11 +77,16 @@ namespace TourAgency.Pages
             PriceTextBox.Text = Convert.ToString(order.Trip.Price);
             DateOrderDatePicker.SelectedDate = order.Date;
             DayCountTextBox.Text = Convert.ToString(order.DayCount);
-            TotalPriceTextBox.Text = TotalPrice.ToString();
+            TotalPriceTextBox.Text = order.TotalPrice;
             CurrentOrder = order;
             IsActualCheckBox.Visibility = Visibility.Visible;
             IsActualCheckBox.IsChecked = order.IsActual;
             loadForm = true;
+            if (IsActualCheckBox.IsChecked == false)
+            {
+                PrintButton.Visibility = Visibility.Hidden;
+            }
+            OrderButton.Content = "Изменить";
         }
 
         private void OrderButton_Click(object sender, RoutedEventArgs e)
@@ -105,7 +116,6 @@ namespace TourAgency.Pages
                     CurrentOrder.DayCount = int.Parse(DayCountTextBox.Text);
                     CurrentOrder.TypeTrip = TypeTripComboBox.SelectedItem as TypeTrip;
                     CurrentOrder.Date = DateOrderDatePicker.SelectedDate;
-                    OrderButton.Content = "Изменить";
                     CurrentOrder.Agent = AppData.Context.Agent.Where(c => c.IdUser == Properties.Settings.Default.IdUser).FirstOrDefault();
                     if (Convert.ToBoolean(IsActualCheckBox.IsChecked))
                     {
@@ -143,6 +153,11 @@ namespace TourAgency.Pages
                     TotalPriceTextBox.Text = TotalPrice.ToString("N2");
                 }
             }
+        }
+
+        private void PrintButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
