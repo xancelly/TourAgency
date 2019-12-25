@@ -50,6 +50,7 @@
           </Key>
           <Property Name="Code" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="VisaPrice" Type="money" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -142,14 +143,6 @@
           <Property Name="Login" Type="nvarchar" MaxLength="16" />
           <Property Name="Password" Type="nvarchar" MaxLength="32" />
           <Property Name="IdRole" Type="int" />
-        </EntityType>
-        <EntityType Name="Visa">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CodeCountry" Type="nvarchar" MaxLength="2" />
-          <Property Name="Price" Type="money" />
         </EntityType>
         <EntityType Name="Way">
           <Key>
@@ -292,18 +285,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Visa_Country">
-          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
-          <End Role="Visa" Type="Self.Visa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Country">
-              <PropertyRef Name="Code" />
-            </Principal>
-            <Dependent Role="Visa">
-              <PropertyRef Name="CodeCountry" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Way_CountryFinal">
           <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
           <End Role="Way" Type="Self.Way" Multiplicity="*" />
@@ -341,7 +322,6 @@
           <EntitySet Name="TripImage" EntityType="Self.TripImage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeTrip" EntityType="Self.TypeTrip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Visa" EntityType="Self.Visa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Way" EntityType="Self.Way" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Agent_Users" Association="Self.FK_Agent_Users">
             <End Role="Users" EntitySet="Users" />
@@ -387,10 +367,6 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK_Visa_Country" Association="Self.FK_Visa_Country">
-            <End Role="Country" EntitySet="Country" />
-            <End Role="Visa" EntitySet="Visa" />
-          </AssociationSet>
           <AssociationSet Name="FK_Way_CountryFinal" Association="Self.FK_Way_CountryFinal">
             <End Role="Country" EntitySet="Country" />
             <End Role="Way" EntitySet="Way" />
@@ -417,7 +393,6 @@
           <EntitySet Name="TripImage" EntityType="TourAgencyModel.TripImage" />
           <EntitySet Name="TypeTrip" EntityType="TourAgencyModel.TypeTrip" />
           <EntitySet Name="Users" EntityType="TourAgencyModel.Users" />
-          <EntitySet Name="Visa" EntityType="TourAgencyModel.Visa" />
           <EntitySet Name="Way" EntityType="TourAgencyModel.Way" />
           <AssociationSet Name="FK_Agent_Users" Association="TourAgencyModel.FK_Agent_Users">
             <End Role="Users" EntitySet="Users" />
@@ -438,10 +413,6 @@
           <AssociationSet Name="FK_Order_Client" Association="TourAgencyModel.FK_Order_Client">
             <End Role="Client" EntitySet="Client" />
             <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Visa_Country" Association="TourAgencyModel.FK_Visa_Country">
-            <End Role="Country" EntitySet="Country" />
-            <End Role="Visa" EntitySet="Visa" />
           </AssociationSet>
           <AssociationSet Name="FK_Way_CountryFinal" Association="TourAgencyModel.FK_Way_CountryFinal">
             <End Role="Country" EntitySet="Country" />
@@ -526,7 +497,7 @@
           </Key>
           <Property Name="Code" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Visa" Relationship="TourAgencyModel.FK_Visa_Country" FromRole="Country" ToRole="Visa" />
+          <Property Name="VisaPrice" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Way" Relationship="TourAgencyModel.FK_Way_CountryFinal" FromRole="Country" ToRole="Way" />
           <NavigationProperty Name="Way1" Relationship="TourAgencyModel.FK_Way_CountryStart" FromRole="Country" ToRole="Way" />
         </EntityType>
@@ -638,15 +609,6 @@
           <NavigationProperty Name="PersonnelDepartment" Relationship="TourAgencyModel.FK_PersonnelDepartment_Users" FromRole="Users" ToRole="PersonnelDepartment" />
           <NavigationProperty Name="Role" Relationship="TourAgencyModel.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
-        <EntityType Name="Visa">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CodeCountry" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="Country" Relationship="TourAgencyModel.FK_Visa_Country" FromRole="Visa" ToRole="Country" />
-        </EntityType>
         <EntityType Name="Way">
           <Key>
             <PropertyRef Name="Id" />
@@ -716,18 +678,6 @@
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="IdClient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Visa_Country">
-          <End Type="TourAgencyModel.Country" Role="Country" Multiplicity="0..1" />
-          <End Type="TourAgencyModel.Visa" Role="Visa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Country">
-              <PropertyRef Name="Code" />
-            </Principal>
-            <Dependent Role="Visa">
-              <PropertyRef Name="CodeCountry" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -877,6 +827,7 @@
           <EntitySetMapping Name="Country">
             <EntityTypeMapping TypeName="TourAgencyModel.Country">
               <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="VisaPrice" ColumnName="VisaPrice" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
@@ -979,15 +930,6 @@
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Visa">
-            <EntityTypeMapping TypeName="TourAgencyModel.Visa">
-              <MappingFragment StoreEntitySet="Visa">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="CodeCountry" ColumnName="CodeCountry" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -72,6 +72,8 @@ namespace TourAgency.Pages
             var FullnameClient = AppData.Context.Client.Where(c => c.IdUser == Properties.Settings.Default.IdUser).FirstOrDefault();
             var FullnameAgent = AppData.Context.Agent.Where(c => c.IdUser == Properties.Settings.Default.IdUser).FirstOrDefault();
             var typeTrip = AppData.Context.TypeTrip.ToList();
+            TypeTrip = Convert.ToDecimal(order.TypeTrip.Price);
+            VisaPrice = Convert.ToDecimal(order.Trip.Way.Country.VisaPrice);
             WayPrice = Convert.ToDecimal(order.Trip.Way.Price);
             TypeTripComboBox.ItemsSource = typeTrip;
             CurrentTaxation = Convert.ToDecimal(AppData.Context.Taxation.Select(c => c.Tax).FirstOrDefault());
@@ -157,7 +159,7 @@ namespace TourAgency.Pages
                 if (DayCountTextBox.Text != "" && DayCountTextBox.Text.IndexOfAny(letterList.ToCharArray()) <= -1)
                 {
                     DaysPrice = Convert.ToDecimal(PriceTextBox.Text) * Convert.ToDecimal(DayCountTextBox.Text);
-                    TotalPrice = (DaysPrice + WayPrice) + ((DaysPrice + WayPrice) / 100 * CurrentTaxation);
+                    TotalPrice = (DaysPrice + WayPrice + VisaPrice + TypeTrip) + ((DaysPrice + WayPrice + VisaPrice + TypeTrip) / 100 * CurrentTaxation);
                     TotalPriceTextBox.Text = TotalPrice.ToString("N2");
                 }
             }
@@ -169,24 +171,23 @@ namespace TourAgency.Pages
             Word.Application wApp = new Word.Application();
             try
             {
-                wApp.Visible = true;
                 string src = "";
                 src = $@"{Directory.GetCurrentDirectory().ToString()}\Dogovor";
                 DateTime dateTime = CurrentOrder.Date.Value;
-                dateTime.AddDays(Convert.ToDouble(CurrentOrder.DayCount));
-                wDoc = wApp.Documents.Open(src);
+
+                string CurrentDate = dateTime.AddDays(Convert.ToDouble(CurrentOrder.DayCount)).ToShortDateString();
+                wDoc = wApp.Documents.Add(src);
                 wDoc.Activate();
                 Word.Bookmarks wMarks = wDoc.Bookmarks;
-                Word.Range wRange;
-                wMarks["CurrentDate"].Range.Text = Convert.ToString(DateTime.Today);
+                wMarks["CurrentDate"].Range.Text = DateTime.Today.ToShortDateString();
                 wMarks["AgentFullname"].Range.Text = CurrentOrder.Agent.FullnameAgent;
                 wMarks["AgentFullname1"].Range.Text = CurrentOrder.Agent.FullnameAgent;
                 wMarks["ClientFullname"].Range.Text = CurrentOrder.Client.FullnameClient;
                 wMarks["DayCount"].Range.Text = CurrentOrder.DayCount.ToString();
                 wMarks["EmailAgent"].Range.Text = CurrentOrder.Agent.Email;
                 wMarks["EmailClient"].Range.Text = CurrentOrder.Client.Email;
-                wMarks["EndDate"].Range.Text = dateTime.ToString();
-                wMarks["EndDate1"].Range.Text = dateTime.ToString();
+                wMarks["EndDate"].Range.Text = CurrentDate;
+                wMarks["EndDate1"].Range.Text = CurrentDate;
                 wMarks["FinalCountry"].Range.Text = CurrentOrder.Trip.Way.Country.Name;
                 wMarks["FinalCountry1"].Range.Text = CurrentOrder.Trip.Way.Country.Name;
                 wMarks["FirstNameAgent"].Range.Text = CurrentOrder.Agent.FirstName;
@@ -201,17 +202,16 @@ namespace TourAgency.Pages
                 wMarks["PassportClient"].Range.Text = CurrentOrder.Client.Passport;
                 wMarks["PhoneAgent"].Range.Text = CurrentOrder.Agent.Phone;
                 wMarks["PhoneClient"].Range.Text = CurrentOrder.Client.Phone;
-                wMarks["StartDate"].Range.Text = CurrentOrder.Date.ToString();
-                wMarks["StartDate1"].Range.Text = CurrentOrder.Date.ToString();
+                wMarks["StartDate"].Range.Text =  CurrentOrder.Date.Value.ToShortDateString();
+                wMarks["StartDate1"].Range.Text = CurrentOrder.Date.Value.ToShortDateString();
                 wMarks["StartFinalCountry"].Range.Text = Convert.ToString(CurrentOrder.Trip.Way.Country1.Name + " - " + CurrentOrder.Trip.Way.Country.Name);
                 wMarks["TotalPrice"].Range.Text = CurrentOrder.TotalPrice;
                 wMarks["TotalPrice1"].Range.Text = CurrentOrder.TotalPrice;
-                wMarks["TypeTourPrice"].Range.Text = TypeTrip.ToString();
-                wMarks["VisaPrice"].Range.Text = VisaPrice.ToString();
-                wMarks["MiddleNameClient"].Range.Text = CurrentOrder.Client.MiddleName;
+                wMarks["TypeTourPrice"].Range.Text = TypeTrip.ToString("N2");
+                wMarks["VisaPrice"].Range.Text = VisaPrice.ToString("N2");
                 wMarks["WayPrice"].Range.Text = CurrentOrder.Trip.Way.Price.ToString();
-                wDoc.SaveAs2
-                        ($@"{Directory.GetCurrentDirectory().ToString()}\Dogovor_1.docx");
+                wDoc.SaveAs2($@"{Directory.GetCurrentDirectory().ToString()}\Dogovor_{CurrentOrder.Id}.docx");
+                wApp.Visible = true;
                 wDoc.Close();
                 wDoc = null;
                 wApp.Quit();

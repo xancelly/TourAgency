@@ -41,10 +41,24 @@
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Название"
                                     Width="*"
-                                    Binding="{Binding Name}" />
+                                    Binding="{Binding Name}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping"
+                                    Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Описание"
                                     Width="*"
-                                    Binding="{Binding Description}" />
+                                    Binding="{Binding Description}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping"
+                                    Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Страна отправления"
                                     Width="*"
                                     Binding="{Binding Way.Country1.Name}" />

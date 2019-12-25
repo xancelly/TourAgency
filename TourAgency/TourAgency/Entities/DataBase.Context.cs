@@ -37,7 +37,6 @@ namespace TourAgency.Entities
         public virtual DbSet<TripImage> TripImage { get; set; }
         public virtual DbSet<TypeTrip> TypeTrip { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<Visa> Visa { get; set; }
         public virtual DbSet<Way> Way { get; set; }
     }
 }

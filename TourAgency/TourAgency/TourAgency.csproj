@@ -134,9 +134,6 @@
     <Compile Include="Entities\Users.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Visa.cs">
-      <DependentUpon>DataBase.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\Way.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>

@@ -33,7 +33,7 @@
                   IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер заказа"
-                                    Width="*"
+                                    Width="*" 
                                     Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Заказчик"
                                     Width="*"

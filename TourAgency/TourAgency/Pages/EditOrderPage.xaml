@@ -31,7 +31,8 @@
                     <TextBox x:Name="DescriptionTextBox"
                              Margin="5"
                              IsReadOnly="True"
-                             Height="150" />
+                             Height="150" 
+                             TextWrapping="Wrap"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
                             Margin="5">
