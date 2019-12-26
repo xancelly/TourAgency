@@ -48,6 +48,14 @@
                 Content="Назад"
                 Style="{StaticResource MiniButton}"
                 Margin="5"
+                VerticalAlignment="Top"
                 Click="BackButton_Click"/>
+        <Button x:Name="AboutProgramButton"
+                Grid.Column="2"
+                Content="Справка"
+                VerticalAlignment="Bottom"
+                Style="{StaticResource MiniButton}"
+                Margin="5"
+                Click="AboutProgramButton_Click" />
     </Grid>
 </Window>

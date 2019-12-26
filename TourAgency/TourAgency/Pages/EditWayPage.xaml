@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:TourAgency.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="900" d:DesignWidth="900"
-      Title="Редактирование маршрута">
+      Title="Редактирование маршрута"
+      >
 
     <Grid>
         <StackPanel Orientation="Vertical"

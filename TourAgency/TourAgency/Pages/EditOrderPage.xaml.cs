@@ -220,5 +220,26 @@ namespace TourAgency.Pages
                 wDoc = null;
             }
         }
+
+        private void TypeTripComboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (loadForm)
+            {
+                TypeTrip = Convert.ToDecimal(CurrentOrder.TypeTrip.Price);
+                DaysPrice = Convert.ToDecimal(PriceTextBox.Text) * Convert.ToDecimal(DayCountTextBox.Text);
+                TotalPrice = (DaysPrice + WayPrice + VisaPrice + TypeTrip) + ((DaysPrice + WayPrice + VisaPrice + TypeTrip) / 100 * CurrentTaxation);
+                TotalPriceTextBox.Text = TotalPrice.ToString("N2");
+            }
+        }
+
+        private void TypeTripComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (loadForm)
+            {
+                DaysPrice = Convert.ToDecimal(PriceTextBox.Text) * Convert.ToDecimal(DayCountTextBox.Text);
+                TotalPrice = (DaysPrice + WayPrice + VisaPrice + TypeTrip) + ((DaysPrice + WayPrice + VisaPrice + TypeTrip) / 100 * CurrentTaxation);
+                TotalPriceTextBox.Text = TotalPrice.ToString("N2");
+            }
+        }
     }
 }

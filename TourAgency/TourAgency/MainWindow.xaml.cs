@@ -45,5 +45,10 @@ namespace TourAgency
                 MainFrame.GoBack();
             }
         }
+
+        private void AboutProgramButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AboutProgramPage());
+        }
     }
 }

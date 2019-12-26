@@ -7,7 +7,8 @@
       mc:Ignorable="d"
       d:DesignHeight="900"
       d:DesignWidth="900"
-      Title="Редактирование заказа">
+      Title="Редактирование заказа"
+      >
 
     <Grid>
         <StackPanel Orientation="Horizontal"
@@ -110,7 +111,9 @@
                                Style="{StaticResource StandartTextBlock}" />
                     <ComboBox x:Name="TypeTripComboBox"
                               Margin="5"
-                              DisplayMemberPath="Name" />
+                              DisplayMemberPath="Name"
+                              SelectionChanged="TypeTripComboBox_SelectionChanged"
+                              DataContextChanged="TypeTripComboBox_DataContextChanged"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
                             Margin="5">

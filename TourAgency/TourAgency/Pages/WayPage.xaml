@@ -8,7 +8,8 @@
       Loaded="Page_Loaded"
       d:DesignHeight="900"
       d:DesignWidth="900"
-      Title="Маршруты">
+      Title="Маршруты"
+      >
 
     <Grid>
         <Grid.RowDefinitions>

@@ -7,7 +7,8 @@
       mc:Ignorable="d" 
       Loaded="Page_Loaded"
       d:DesignHeight="900" d:DesignWidth="900"
-      Title="Агенты">
+      Title="Агенты"
+     >
 
     <Grid>
         <Grid.RowDefinitions>
